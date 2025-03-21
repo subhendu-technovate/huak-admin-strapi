@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "PostTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "PostContent": {
+      "type": "richtext",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "Slug": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "maxLength": 200
+    },
+    "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "MetaTitle": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "MetaDescription": {
+      "type": "text"
+    }
+  }
+}
